@@ -105,6 +105,8 @@ foreach ($ageLabels as $label) {
             <th>年齢</th>
             <th>困りごと</th>
         </tr>
+        <!-- 回答一覧の表を出力する部分 -->
+        <!-- $data の中にある1件ずつの回答データを $row に取り出してループする -->
         <?php foreach ($data as $row): ?>
             <tr>
                 <td><?= htmlspecialchars($row['name']) ?></td>
@@ -113,6 +115,7 @@ foreach ($ageLabels as $label) {
                 <td><?= htmlspecialchars($row['age']) ?></td>
                 <td><?= htmlspecialchars($row['trouble']) ?></td>
             </tr>
+            <!-- foreach ループの終了 -->
         <?php endforeach; ?>
     </table>
     <script>
@@ -219,7 +222,7 @@ foreach ($ageLabels as $label) {
             data: {
                 labels: <?= json_encode(array_keys($ageChartData)) ?>, // 年齢区分のラベル（横軸）
                 datasets: [{
-                    label: '人数', // 凡例ラベル
+                    label: '人数',
                     data: <?= json_encode(array_values($ageChartData)) ?>, // 各年齢の人数
                     borderColor: '#2980b9', // 線の色
                     backgroundColor: '#3498db', // データポイントの塗り色
@@ -261,7 +264,7 @@ foreach ($ageLabels as $label) {
             data: {
                 labels: <?= json_encode(array_keys($troubleCount)) ?>, // 困りごとの種類
                 datasets: [{
-                    label: '回答数', // 凡例ラベル
+                    label: '回答数',
                     data: <?= json_encode(array_values($troubleCount)) ?>, // 各項目の件数
                     backgroundColor: '#f39c12' // 棒の色
                 }]

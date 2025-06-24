@@ -14,7 +14,7 @@ $troubles = $_POST["troubles"] ?? '';
 if ($name && $email && $animal && $goodChange && $ageAdopted && $troubles) {
     // CSV形式の1行データを作る（カンマ区切り）
     // 各項目をカンマでつないで1行にまとめる（最後に改行 \n を追加）
-    $line = $name . ',' . $email . ',' . $animal .  ',' . $goodChange . ',' .  $ageAdopted . ',' . $troubles . "\n";
+    $line = $name . ',' . $email . ',' . $animal .  ',' . $goodChange . ',' .  $ageAdopted . ',' . $troubles . PHP_EOL;
     // ファイルに追記（FILE_APPENDは追記。上書きではない！！）
     // __DIR__ はこのPHPファイルがあるフォルダの絶対パスを指している
     file_put_contents(__DIR__ . '/data/data.csv', $line, FILE_APPEND);
